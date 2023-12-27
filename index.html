@@ -56,6 +56,21 @@
         .portfolio img:hover {
             transform: scale(1.1);
         }
+
+        .slideshow-container {
+            max-width: 100%;
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .mySlides {
+            display: none;
+        }
+
+        img.slide-img {
+            max-width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 <body>
@@ -91,13 +106,32 @@
 
     <section id="travel">
         <h2>Travel Portfolio</h2>
-        <div class="portfolio">
-            <!-- Add your travel photos here -->
-            <img src="travel1.jpg" alt="Travel 1">
-            <img src="travel2.jpg" alt="Travel 2">
-            <!-- Add more images as needed -->
+        <div class="slideshow-container">
+            <div class="mySlides">
+                <img class="slide-img" src="travel1.jpg" alt="Travel 1">
+            </div>
+            <div class="mySlides">
+                <img class="slide-img" src="travel2.jpg" alt="Travel 2">
+            </div>
+            <!-- Add more slides as needed -->
         </div>
     </section>
+
+    <script>
+        let slideIndex = 1;
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex - 1].style.display = "block";
+        }
+
+        showSlides(slideIndex);
+    </script>
 </body>
 </html>
-
